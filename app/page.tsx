@@ -109,9 +109,11 @@ export default function LandingPage() {
                   </div>
                   <span className="ml-2 font-mono text-xs text-muted-foreground">terminal</span>
                 </div>
-                <pre className="overflow-x-auto p-4 font-mono text-sm leading-relaxed">
-<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox run --project . --label &quot;codex refactor&quot; \</span>
-<span className="text-foreground">    --estimated-cost 0.03 -- pytest -q</span>
+                <pre className="p-4 font-mono text-sm leading-relaxed">
+<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox run --project . \</span>
+<span className="text-foreground">    --label &quot;codex refactor&quot; \</span>
+<span className="text-foreground">    --estimated-cost 0.03 \</span>
+<span className="text-foreground">    -- pytest -q</span>
 {"\n"}
 {"\n"}<span className="text-primary">8 passed</span>
 {"\n"}
@@ -159,48 +161,66 @@ export default function LandingPage() {
         {/* Screenshots */}
         <section className="border-b border-border bg-card/50">
           <div className="mx-auto max-w-5xl px-6 py-20">
-            <h2 className="mb-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Reports
             </h2>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <div className="border border-border bg-background">
-                <div className="flex items-center gap-2 border-b border-border px-4 py-3">
+            <p className="mb-12 max-w-xl text-muted-foreground">
+              Every run generates browsable HTML reports showing exactly what happened.
+            </p>
+            <div className="grid gap-8 lg:grid-cols-2">
+              {/* Blocked Run Report */}
+              <div className="border-2 border-border bg-background">
+                <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-4 py-3">
                   <div className="flex gap-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
+                    <div className="h-3 w-3 rounded-full bg-destructive/60" />
+                    <div className="h-3 w-3 rounded-full bg-yellow-500/60" />
+                    <div className="h-3 w-3 rounded-full bg-primary/60" />
                   </div>
                   <span className="ml-2 font-mono text-xs text-muted-foreground">
                     blocked-run-report.html
                   </span>
                 </div>
-                <div className="flex aspect-video items-center justify-center bg-muted/30 p-8">
-                  <div className="text-center">
-                    <div className="mb-3 font-mono text-3xl text-muted-foreground/40">[blocked]</div>
-                    <p className="font-mono text-xs text-muted-foreground">
-                      Blocked run report
-                    </p>
+                <div className="relative aspect-[4/3] w-full bg-muted/10">
+                  {/* Placeholder for blocked run screenshot */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-mono text-sm text-muted-foreground/50">
+                      blocked-run-screenshot.png
+                    </span>
                   </div>
                 </div>
+                <div className="border-t border-border px-4 py-3">
+                  <p className="font-mono text-sm text-foreground">Blocked Run Report</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Shows blocked commands, reasons, and full context
+                  </p>
+                </div>
               </div>
-              <div className="border border-border bg-background">
-                <div className="flex items-center gap-2 border-b border-border px-4 py-3">
+
+              {/* File Change Report */}
+              <div className="border-2 border-border bg-background">
+                <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-4 py-3">
                   <div className="flex gap-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/20" />
+                    <div className="h-3 w-3 rounded-full bg-destructive/60" />
+                    <div className="h-3 w-3 rounded-full bg-yellow-500/60" />
+                    <div className="h-3 w-3 rounded-full bg-primary/60" />
                   </div>
                   <span className="ml-2 font-mono text-xs text-muted-foreground">
                     file-change-report.html
                   </span>
                 </div>
-                <div className="flex aspect-video items-center justify-center bg-muted/30 p-8">
-                  <div className="text-center">
-                    <div className="mb-3 font-mono text-3xl text-muted-foreground/40">[diff]</div>
-                    <p className="font-mono text-xs text-muted-foreground">
-                      File-change report
-                    </p>
+                <div className="relative aspect-[4/3] w-full bg-muted/10">
+                  {/* Placeholder for file change screenshot */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-mono text-sm text-muted-foreground/50">
+                      file-change-screenshot.png
+                    </span>
                   </div>
+                </div>
+                <div className="border-t border-border px-4 py-3">
+                  <p className="font-mono text-sm text-foreground">File-Change Report</p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Git diffs, before/after snapshots, and affected files
+                  </p>
                 </div>
               </div>
             </div>
