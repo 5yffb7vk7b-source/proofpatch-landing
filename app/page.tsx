@@ -109,17 +109,28 @@ export default function LandingPage() {
                   </div>
                   <span className="ml-2 font-mono text-xs text-muted-foreground">terminal</span>
                 </div>
-                <pre className="p-4 font-mono text-sm leading-relaxed">
-<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox run --project . \</span>
-<span className="text-foreground">    --label &quot;codex refactor&quot; \</span>
-<span className="text-foreground">    --estimated-cost 0.03 \</span>
-<span className="text-foreground">    -- pytest -q</span>
-{"\n"}
-{"\n"}<span className="text-primary">8 passed</span>
-{"\n"}
-{"\n"}<span className="text-muted-foreground">HTML report:</span> <span className="text-foreground">reports/run-20260519.html</span>
-{"\n"}<span className="text-muted-foreground">Dashboard:</span>  <span className="text-foreground">9 runs</span> <span className="text-muted-foreground">•</span> <span className="text-destructive">2 blocked</span> <span className="text-muted-foreground">•</span> <span className="text-foreground">$0.03 estimated</span>
-                </pre>
+                <div className="p-4 font-mono text-xs leading-relaxed sm:text-sm">
+                  <div className="text-foreground">
+                    <span className="text-muted-foreground">$ </span>
+                    {"agentblackbox run --project . \\"}
+                  </div>
+                  <div className="text-foreground pl-4">{"--label \"codex refactor\" \\"}</div>
+                  <div className="text-foreground pl-4">{"--estimated-cost 0.03 \\"}</div>
+                  <div className="text-foreground pl-4">{"-- pytest -q"}</div>
+                  <div className="mt-4 text-primary">8 passed</div>
+                  <div className="mt-4">
+                    <span className="text-muted-foreground">HTML report: </span>
+                    <span className="text-foreground">reports/run-20260519.html</span>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Dashboard: </span>
+                    <span className="text-foreground">9 runs</span>
+                    <span className="text-muted-foreground"> • </span>
+                    <span className="text-destructive">2 blocked</span>
+                    <span className="text-muted-foreground"> • </span>
+                    <span className="text-foreground">$0.03 estimated</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
