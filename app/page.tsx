@@ -1,4 +1,5 @@
 import { Github } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 const features = [
@@ -192,12 +193,12 @@ export default function LandingPage() {
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] w-full bg-muted/10">
-                  {/* Placeholder for blocked run screenshot */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-sm text-muted-foreground/50">
-                      blocked-run-screenshot.png
-                    </span>
-                  </div>
+                  <Image
+                    src="/blocked-report.png"
+                    alt="Blocked run report showing blocked commands with reasons and context"
+                    fill
+                    className="object-contain p-2"
+                  />
                 </div>
                 <div className="border-t border-border px-4 py-3">
                   <p className="font-mono text-sm text-foreground">Blocked Run Report</p>
@@ -220,12 +221,12 @@ export default function LandingPage() {
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] w-full bg-muted/10">
-                  {/* Placeholder for file change screenshot */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-mono text-sm text-muted-foreground/50">
-                      file-change-screenshot.png
-                    </span>
-                  </div>
+                  <Image
+                    src="/file-change-report.png"
+                    alt="File change report showing Git diffs and before/after snapshots"
+                    fill
+                    className="object-contain p-2"
+                  />
                 </div>
                 <div className="border-t border-border px-4 py-3">
                   <p className="font-mono text-sm text-foreground">File-Change Report</p>
