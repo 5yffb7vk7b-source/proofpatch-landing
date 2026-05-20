@@ -1,5 +1,4 @@
 import { Github } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 
 const features = [
@@ -193,11 +192,11 @@ export default function LandingPage() {
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] w-full bg-muted/10">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src="/blocked-report.png"
                     alt="Blocked run report showing blocked commands with reasons and context"
-                    fill
-                    className="object-contain p-2"
+                    className="h-full w-full object-contain p-2"
                   />
                 </div>
                 <div className="border-t border-border px-4 py-3">
@@ -221,11 +220,11 @@ export default function LandingPage() {
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] w-full bg-muted/10">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src="/file-change-report.png"
                     alt="File change report showing Git diffs and before/after snapshots"
-                    fill
-                    className="object-contain p-2"
+                    className="h-full w-full object-contain p-2"
                   />
                 </div>
                 <div className="border-t border-border px-4 py-3">
