@@ -2,22 +2,14 @@ import { Github } from "lucide-react"
 import Link from "next/link"
 
 const features = [
-  { label: "Command run history", desc: "Timestamps, exit codes, stdout/stderr captured per run" },
-  { label: "Git before/after tracking", desc: "Automatic snapshots before and after each session" },
-  { label: "Markdown, JSON, HTML reports", desc: "Export runs in multiple formats for sharing" },
-  { label: "Dashboard command", desc: "Browse and search runs from your terminal" },
-  { label: "Run labels", desc: "Tag runs for organization and filtering" },
-  { label: "Estimated cost tracking", desc: "Monitor token usage and API costs" },
-  { label: "Sensitive output redaction", desc: "Automatically strip secrets from logs" },
-  { label: "GitHub Actions tested", desc: "CI/CD integration ready out of the box" },
-]
-
-const roadmap = [
-  "Better report viewer",
-  "Agent profile presets",
-  "HTML dashboard",
-  "Run comparison",
-  "Packaged release",
+  { label: "Local Run Tracking", desc: "Records commands, labels, exit codes, duration, output summaries, and estimated cost." },
+  { label: "Git Change Evidence", desc: "Captures before/after Git state and summarizes changed, created, deleted, and untracked files." },
+  { label: "Local Reports", desc: "Generates Markdown, JSON, and HTML reports for demos, review, and debugging." },
+  { label: "Rollback Planning", desc: "Creates dry-run rollback plans before applying recovery actions." },
+  { label: "Run Compare", desc: "Compares two saved runs side by side." },
+  { label: "Workflow Layer", desc: "Lists, validates, dry-runs, and safely executes approved local workflow templates." },
+  { label: "Safe Workflow Executor", desc: "Keeps dry-run as default, requires allowlisted commands, blocks risky patterns, and logs execution locally." },
+  { label: "Workflow Intelligence Dashboard", desc: "Turns workflow logs into local HTML reports, risk summaries, and recommended next actions." },
 ]
 
 export default function LandingPage() {
@@ -26,13 +18,19 @@ export default function LandingPage() {
       {/* Nav */}
       <nav className="border-b border-border">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-          <span className="font-mono text-sm text-foreground">agentblackbox</span>
-          <div className="flex items-center gap-6">
+          <span className="font-mono text-sm text-foreground">RunProof</span>
+          <div className="flex items-center gap-4 sm:gap-6">
             <Link href="#features" className="font-mono text-xs text-muted-foreground hover:text-foreground">
-              features
+              Features
+            </Link>
+            <Link href="#workflows" className="hidden font-mono text-xs text-muted-foreground hover:text-foreground sm:inline">
+              Workflows
+            </Link>
+            <Link href="#reports" className="hidden font-mono text-xs text-muted-foreground hover:text-foreground sm:inline">
+              Reports
             </Link>
             <Link href="#quickstart" className="font-mono text-xs text-muted-foreground hover:text-foreground">
-              quickstart
+              Quickstart
             </Link>
             <Link
               href="https://github.com/5yffb7vk7b-source/agentblackbox"
@@ -67,15 +65,15 @@ export default function LandingPage() {
 
               {/* Headline */}
               <h1 className="mb-4 font-mono text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-                AgentBlackbox
+                RunProof
               </h1>
               <p className="mb-6 text-lg text-muted-foreground">
-                A local black box recorder for AI coding assistants.
+                Proof of what your AI coding agent ran.
               </p>
               <p className="mb-8 max-w-md leading-relaxed text-muted-foreground">
-                Track commands, Git changes, outputs, reports, labels, and estimated costs 
-                during AI-assisted coding sessions. Keep a full audit trail without sending 
-                data anywhere.
+                Track commands, Git changes, workflow runs, reports, rollback plans, compare views, 
+                and execution logs during AI-assisted development. RunProof gives developers a local 
+                evidence layer before they commit, release, or trust AI-generated code.
               </p>
 
               {/* CTAs */}
@@ -96,6 +94,11 @@ export default function LandingPage() {
                   Quick start
                 </Link>
               </div>
+
+              {/* Transition note */}
+              <p className="mt-6 text-xs text-muted-foreground/70">
+                Currently released as the <span className="font-mono">agentblackbox</span> CLI while the project transitions to the RunProof brand.
+              </p>
             </div>
 
             {/* Terminal Preview */}
@@ -114,9 +117,9 @@ export default function LandingPage() {
                     <span className="text-muted-foreground">$ </span>
                     {"agentblackbox run --project . \\"}
                   </div>
-                  <div className="text-foreground pl-4">{"--label \"codex refactor\" \\"}</div>
-                  <div className="text-foreground pl-4">{"--estimated-cost 0.03 \\"}</div>
-                  <div className="text-foreground pl-4">{"-- pytest -q"}</div>
+                  <div className="pl-4 text-foreground">{"--label \"codex refactor\" \\"}</div>
+                  <div className="pl-4 text-foreground">{"--estimated-cost 0.03 \\"}</div>
+                  <div className="pl-4 text-foreground">{"-- pytest -q"}</div>
                   <div className="mt-4 text-primary">8 passed</div>
                   <div className="mt-4">
                     <span className="text-muted-foreground">HTML report: </span>
@@ -136,18 +139,39 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Why it exists */}
+        {/* Why RunProof Exists */}
         <section className="border-b border-border bg-card/50">
           <div className="mx-auto max-w-5xl px-6 py-16">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                Why it exists
+            <div className="mx-auto max-w-2xl">
+              <h2 className="mb-6 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                Why RunProof exists
               </h2>
-              <p className="text-lg leading-relaxed text-muted-foreground">
-                AI coding agents can run commands and change files quickly. AgentBlackbox gives 
-                every run a local audit trail so developers can review what happened, what changed, 
-                and how to roll back.
+              <p className="mb-6 text-lg leading-relaxed text-muted-foreground">
+                AI coding agents move fast, but developers still need proof:
               </p>
+              <ul className="grid gap-2 text-muted-foreground sm:grid-cols-2">
+                <li className="flex items-center gap-2 font-mono text-sm">
+                  <span className="text-muted-foreground/50">—</span> what ran
+                </li>
+                <li className="flex items-center gap-2 font-mono text-sm">
+                  <span className="text-muted-foreground/50">—</span> what changed
+                </li>
+                <li className="flex items-center gap-2 font-mono text-sm">
+                  <span className="text-muted-foreground/50">—</span> what failed
+                </li>
+                <li className="flex items-center gap-2 font-mono text-sm">
+                  <span className="text-muted-foreground/50">—</span> what was blocked
+                </li>
+                <li className="flex items-center gap-2 font-mono text-sm">
+                  <span className="text-muted-foreground/50">—</span> what reports were generated
+                </li>
+                <li className="flex items-center gap-2 font-mono text-sm">
+                  <span className="text-muted-foreground/50">—</span> what rollback plan exists
+                </li>
+                <li className="flex items-center gap-2 font-mono text-sm">
+                  <span className="text-muted-foreground/50">—</span> what should happen next
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -169,8 +193,46 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Screenshots */}
-        <section className="border-b border-border bg-card/50">
+        {/* Workflow */}
+        <section id="workflows" className="scroll-mt-16 border-b border-border bg-card/50">
+          <div className="mx-auto max-w-5xl px-6 py-20">
+            <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              Built for AI coding-agent workflows
+            </h2>
+            <p className="mb-8 max-w-2xl leading-relaxed text-muted-foreground">
+              Use RunProof around tools like Codex, Claude Code, Claude Desktop/Cowork-style workflows, 
+              OpenJarvis, OpenClaw, and other local coding assistants. RunProof does not replace the 
+              coding agent. It records and reviews the trail the agent leaves behind.
+            </p>
+            <div className="border border-border bg-background p-6">
+              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                Flow
+              </p>
+              <div className="flex flex-wrap items-center gap-2 font-mono text-sm text-foreground">
+                <span>Plan</span>
+                <span className="text-muted-foreground">→</span>
+                <span>Dry-run</span>
+                <span className="text-muted-foreground">→</span>
+                <span>Execute</span>
+                <span className="text-muted-foreground">→</span>
+                <span>Log</span>
+                <span className="text-muted-foreground">→</span>
+                <span>Report</span>
+                <span className="text-muted-foreground">→</span>
+                <span>Compare</span>
+                <span className="text-muted-foreground">→</span>
+                <span>Rollback plan</span>
+                <span className="text-muted-foreground">→</span>
+                <span>Review</span>
+                <span className="text-muted-foreground">→</span>
+                <span className="text-primary">Ship</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Reports/Screenshots */}
+        <section id="reports" className="scroll-mt-16 border-b border-border">
           <div className="mx-auto max-w-5xl px-6 py-20">
             <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Reports
@@ -179,7 +241,7 @@ export default function LandingPage() {
               Every run generates browsable HTML reports showing exactly what happened.
             </p>
             <div className="grid gap-8 lg:grid-cols-2">
-              {/* Blocked Run Report */}
+              {/* Blocked Command Report */}
               <div className="border-2 border-border bg-background">
                 <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-4 py-3">
                   <div className="flex gap-1.5">
@@ -188,19 +250,19 @@ export default function LandingPage() {
                     <div className="h-3 w-3 rounded-full bg-primary/60" />
                   </div>
                   <span className="ml-2 font-mono text-xs text-muted-foreground">
-                    blocked-run-report.html
+                    blocked-command-report.html
                   </span>
                 </div>
                 <div className="relative aspect-[4/3] w-full bg-muted/10">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/blocked-report.png"
-                    alt="Blocked run report showing blocked commands with reasons and context"
+                    alt="Blocked command report showing blocked commands with reasons and context"
                     className="h-full w-full object-contain p-2"
                   />
                 </div>
                 <div className="border-t border-border px-4 py-3">
-                  <p className="font-mono text-sm text-foreground">Blocked Run Report</p>
+                  <p className="font-mono text-sm text-foreground">Blocked Command Report</p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     Shows blocked commands, reasons, and full context
                   </p>
@@ -228,7 +290,7 @@ export default function LandingPage() {
                   />
                 </div>
                 <div className="border-t border-border px-4 py-3">
-                  <p className="font-mono text-sm text-foreground">File-Change Report</p>
+                  <p className="font-mono text-sm text-foreground">File Change Report</p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     Git diffs, before/after snapshots, and affected files
                   </p>
@@ -239,11 +301,14 @@ export default function LandingPage() {
         </section>
 
         {/* Quick Start */}
-        <section id="quickstart" className="scroll-mt-16 border-b border-border">
+        <section id="quickstart" className="scroll-mt-16 border-b border-border bg-card/50">
           <div className="mx-auto max-w-5xl px-6 py-20">
-            <h2 className="mb-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Quick start
             </h2>
+            <p className="mb-8 text-xs text-muted-foreground">
+              The CLI command remains <span className="font-mono">agentblackbox</span> during the RunProof brand transition.
+            </p>
             <div className="border border-border bg-card">
               <div className="flex items-center gap-2 border-b border-border px-4 py-3">
                 <div className="flex gap-1.5">
@@ -253,42 +318,57 @@ export default function LandingPage() {
                 </div>
                 <span className="ml-2 font-mono text-xs text-muted-foreground">terminal</span>
               </div>
-              <pre className="overflow-x-auto p-6 font-mono text-sm leading-loose">
+              <pre className="overflow-x-auto p-6 font-mono text-xs leading-loose sm:text-sm">
 <span className="text-muted-foreground">$</span> <span className="text-foreground">git clone https://github.com/5yffb7vk7b-source/agentblackbox.git</span>
 {"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">cd agentblackbox</span>
 {"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">python3 -m venv .venv</span>
 {"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">source .venv/bin/activate</span>
 {"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">pip install -e .</span>
-{"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox dashboard</span>
+{"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox version</span>
+{"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox run --project . --label &quot;demo&quot; -- pytest -q</span>
+{"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox latest</span>
+{"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox workflow list</span>
+{"\n"}<span className="text-muted-foreground">$</span> <span className="text-foreground">agentblackbox workflow run workflows/tasks/release-workflow.yml --dry-run</span>
               </pre>
             </div>
           </div>
         </section>
 
-        {/* Roadmap */}
-        <section className="border-b border-border bg-card/50">
+        {/* Trust / Local-first */}
+        <section className="border-b border-border">
           <div className="mx-auto max-w-5xl px-6 py-20">
-            <h2 className="mb-12 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-              Roadmap
+            <h2 className="mb-8 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              Local-first by design
             </h2>
-            <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-5">
-              {roadmap.map((item, i) => (
-                <div key={item} className="bg-background p-4">
-                  <span className="mb-2 block font-mono text-xs text-muted-foreground/50">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+            <div className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                "Runs locally in your repo",
+                "Stores history locally",
+                "Generates local reports",
+                "Redacts sensitive output",
+                "Blocks risky commands when configured",
+                "Keeps workflow execution explicit and reviewable",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 bg-background p-4">
+                  <span className="text-primary">—</span>
                   <span className="font-mono text-sm text-foreground">{item}</span>
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Does not require a hosted dashboard to review local runs.
+            </p>
           </div>
         </section>
 
         {/* Final CTA */}
-        <section className="border-b border-border">
+        <section className="border-b border-border bg-card/50">
           <div className="mx-auto max-w-5xl px-6 py-24 text-center">
-            <p className="mb-8 font-mono text-2xl text-foreground">
-              Build with visibility.
+            <p className="mb-4 font-mono text-2xl text-foreground">
+              RunProof creates local evidence before you trust AI-generated code.
+            </p>
+            <p className="mx-auto mb-8 max-w-md text-muted-foreground">
+              Track what ran. Review what changed. Ship with confidence.
             </p>
             <Link
               href="https://github.com/5yffb7vk7b-source/agentblackbox"
@@ -306,7 +386,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer>
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <span className="font-mono text-xs text-muted-foreground">agentblackbox</span>
+          <span className="font-mono text-xs text-muted-foreground">RunProof</span>
           <span className="font-mono text-xs text-muted-foreground">Made by Matei Domenti</span>
         </div>
       </footer>

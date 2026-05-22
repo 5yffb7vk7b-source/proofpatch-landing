@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'AgentBlackbox - Local Observability for AI Coding Assistants',
-  description: 'Track commands, Git changes, outputs, reports, labels, and estimated costs during AI-assisted coding sessions. A local black box recorder for AI coding assistants.',
+  title: 'RunProof - Proof of what your AI coding agent ran',
+  description: 'RunProof records AI coding-agent runs, Git changes, workflow logs, reports, rollback plans, and safe execution history locally.',
   generator: 'v0.app',
   icons: {
     icon: [
