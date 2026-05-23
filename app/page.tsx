@@ -49,7 +49,7 @@ const features = [
 
 const reportCards = [
   {
-    title: "Blocked Command Report",
+    title: "Policy Block Report",
     eyebrow: "policy block",
     status: "Blocked",
     tone: "text-destructive",
@@ -61,7 +61,7 @@ const reportCards = [
     summary: "Shows blocked commands, policy reasons, command context, and redacted output.",
   },
   {
-    title: "File Change Report",
+    title: "Git Evidence Report",
     eyebrow: "git evidence",
     status: "Review",
     tone: "text-primary",
@@ -153,7 +153,7 @@ export default function LandingPage() {
               className="inline-flex items-center gap-2 border border-border bg-card px-3 py-2 font-mono text-xs text-foreground hover:bg-secondary"
             >
               <Github className="h-3.5 w-3.5" />
-              View on GitHub
+              View source on GitHub
             </Link>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function LandingPage() {
                   className="inline-flex items-center gap-2 bg-foreground px-4 py-2.5 font-mono text-sm text-background hover:bg-foreground/90"
                 >
                   <Github className="h-4 w-4" />
-                  View on GitHub
+                  View source on GitHub
                 </Link>
                 <Link
                   href="#quickstart"
@@ -207,6 +207,13 @@ export default function LandingPage() {
               <p className="font-mono text-xs text-muted-foreground">
                 Local-first · Open source · No hosted dashboard required
               </p>
+              <div className="mt-5 max-w-2xl border border-border bg-card px-4 py-3">
+                <p className="text-xs leading-relaxed text-muted-foreground">
+                  RunProof is the product brand. The current open-source CLI command is still{" "}
+                  <code className="bg-muted px-1 py-0.5 font-mono text-foreground">agentblackbox</code> during the
+                  transition.
+                </p>
+              </div>
             </div>
 
             <div className="flex items-center">
@@ -220,8 +227,12 @@ export default function LandingPage() {
                   <span className="ml-2 font-mono text-xs text-muted-foreground">RunProof terminal</span>
                 </div>
                 <div className="space-y-4 p-5 font-mono text-xs leading-6 sm:text-sm">
+                  <div className="grid gap-1 border-b border-border pb-4">
+                    <span className="text-muted-foreground">CLI command:</span>
+                    <span className="text-foreground">agentblackbox</span>
+                  </div>
                   <div>
-                    <div className="text-foreground">
+                    <div className="break-words text-foreground">
                       <span className="text-muted-foreground">$ </span>
                       agentblackbox run --project . --label &quot;demo&quot; -- pytest -q
                     </div>
@@ -240,9 +251,10 @@ export default function LandingPage() {
                     </div>
                   </div>
                   <div className="border-t border-border pt-4">
-                    <div className="text-foreground">
+                    <div className="break-words text-foreground">
                       <span className="text-muted-foreground">$ </span>
-                      agentblackbox workflow run workflows/tasks/release-workflow.yml --dry-run
+                      agentblackbox workflow run <span className="break-all">workflows/tasks/release-workflow.yml</span>{" "}
+                      --dry-run
                     </div>
                     <div className="mt-2 grid gap-1 text-muted-foreground">
                       <span>
@@ -257,6 +269,15 @@ export default function LandingPage() {
                       <span>
                         <span className="text-foreground">Next action:</span> review plan, then execute approved local checks
                       </span>
+                    </div>
+                  </div>
+                  <div className="border-t border-border pt-4">
+                    <div className="break-words text-foreground">
+                      <span className="text-muted-foreground">$ </span>
+                      agentblackbox workflow report latest --html
+                    </div>
+                    <div className="mt-2 text-muted-foreground">
+                      HTML report: <span className="text-foreground">workflows/reports/latest.html</span>
                     </div>
                   </div>
                 </div>
@@ -378,9 +399,13 @@ export default function LandingPage() {
                 <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">Quickstart</p>
                 <h2 className="font-mono text-3xl leading-tight text-foreground">Install the current CLI locally.</h2>
                 <p className="mt-5 leading-8 text-muted-foreground">
-                  RunProof is the product brand. The current open-source CLI command is still{" "}
+                  RunProof is the product brand. The current repo name and open-source CLI command are still{" "}
                   <code className="bg-muted px-1 py-0.5 font-mono text-foreground">agentblackbox</code> during the
                   transition.
+                </p>
+                <p className="mt-4 border border-border bg-background px-4 py-3 text-sm leading-7 text-muted-foreground">
+                  Coming soon: The <code className="bg-muted px-1 py-0.5 font-mono text-foreground">runproof</code>{" "}
+                  command alias is planned for a future CLI release.
                 </p>
               </div>
               <div className="min-w-0 border border-border bg-background">
@@ -455,8 +480,8 @@ agentblackbox workflow run workflows/tasks/release-workflow.yml --dry-run`}</cod
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-foreground px-5 py-3 font-mono text-sm text-background hover:bg-foreground/90"
               >
-                <Github className="h-4 w-4" />
-                View on GitHub
+                  <Github className="h-4 w-4" />
+                View source on GitHub
               </Link>
               <Link
                 href="#quickstart"

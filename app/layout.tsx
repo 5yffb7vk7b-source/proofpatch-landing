@@ -8,6 +8,15 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: 'RunProof — Proof of what your AI coding agent ran',
   description: 'RunProof tracks commands, Git changes, workflow runs, reports, rollback plans, compare views, and execution logs for AI-assisted development.',
+  keywords: [
+    'AI coding agents',
+    'local workflow logs',
+    'rollback',
+    'Git evidence',
+    'Codex',
+    'Claude Code',
+    'workflow reports',
+  ],
   generator: 'v0.app',
   openGraph: {
     title: 'RunProof — Proof of what your AI coding agent ran',
