@@ -1,4 +1,4 @@
-# v0-agentblackbox-landing-page
+# RunProof landing page
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 

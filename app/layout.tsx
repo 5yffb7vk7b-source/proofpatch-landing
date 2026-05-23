@@ -1,15 +1,26 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'AgentBlackbox - Local Observability for AI Coding Assistants',
-  description: 'Track commands, Git changes, outputs, reports, labels, and estimated costs during AI-assisted coding sessions. A local black box recorder for AI coding assistants.',
+  title: 'RunProof — Proof of what your AI coding agent ran',
+  description: 'RunProof tracks commands, Git changes, workflow runs, reports, rollback plans, compare views, and execution logs for AI-assisted development.',
   generator: 'v0.app',
+  openGraph: {
+    title: 'RunProof — Proof of what your AI coding agent ran',
+    description:
+      'RunProof tracks commands, Git changes, workflow runs, reports, rollback plans, compare views, and execution logs for AI-assisted development.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'RunProof — Proof of what your AI coding agent ran',
+    description:
+      'RunProof tracks commands, Git changes, workflow runs, reports, rollback plans, compare views, and execution logs for AI-assisted development.',
+  },
   icons: {
     icon: [
       {
@@ -42,7 +53,6 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
