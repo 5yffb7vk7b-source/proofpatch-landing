@@ -176,7 +176,7 @@ export default function LandingPage() {
               </div>
 
               <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                {brand.productName}
+                {brand.productName.toUpperCase()}
               </p>
               <h1 className="mb-4 font-mono text-5xl font-medium tracking-tight text-foreground sm:text-6xl">
                 {brand.tagline}
@@ -185,8 +185,8 @@ export default function LandingPage() {
                 Local evidence before you trust or ship AI-generated code.
               </p>
               <p className="mb-8 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-                ProofPatch records what coding agents ran, what changed in Git, what was blocked, what reports were
-                generated, and what rollback plan exists before developers trust or ship AI-generated code.
+                ProofPatch records what coding agents ran, what changed, what failed, what was blocked, what reports
+                were generated, and what rollback plan exists before developers ship AI-generated code.
               </p>
 
               <div className="mb-5 flex flex-wrap items-center gap-4">
@@ -210,11 +210,6 @@ export default function LandingPage() {
               <p className="font-mono text-xs text-muted-foreground">
                 Local-first · Open source · No hosted dashboard required
               </p>
-              <div className="mt-5 max-w-2xl border border-border bg-card px-4 py-3">
-                <p className="text-xs leading-relaxed text-muted-foreground">
-                  {brand.transitionNote}
-                </p>
-              </div>
             </div>
 
             <div className="flex items-center">
@@ -235,7 +230,7 @@ export default function LandingPage() {
                   <div>
                     <div className="break-words text-foreground">
                       <span className="text-muted-foreground">$ </span>
-                      {brand.currentPreferredCli} run --project . --label &quot;demo&quot; -- pytest -q
+                      {brand.currentPreferredCli}{" "}run --project . --label &quot;demo&quot; -- pytest -q
                     </div>
                     <div className="mt-2 text-primary">8 passed</div>
                     <div>
@@ -282,17 +277,6 @@ export default function LandingPage() {
                       HTML report: <span className="text-foreground">workflows/reports/latest.html</span>
                     </div>
                   </div>
-                </div>
-                <div className="border-t border-border px-5 py-3">
-                  <p className="text-xs leading-relaxed text-muted-foreground">
-                    CLI transition:{" "}
-                    <code className="bg-muted px-1 py-0.5 font-mono text-foreground">{brand.currentPreferredCli}</code>{" "}
-                    is currently supported,{" "}
-                    <code className="bg-muted px-1 py-0.5 font-mono text-foreground">{brand.legacyCliName}</code>{" "}
-                    remains legacy, and{" "}
-                    <code className="bg-muted px-1 py-0.5 font-mono text-foreground">{brand.futureCliAlias}</code> is
-                    planned after the final package rename.
-                  </p>
                 </div>
               </div>
             </div>
@@ -387,8 +371,8 @@ export default function LandingPage() {
               Reviewable proof, without broken screenshots or hidden state.
             </h2>
             <p className="mb-10 max-w-3xl leading-8 text-muted-foreground">
-              These cards are ProofPatch-styled report mockups for local review of blocked commands, Git evidence, and
-              workflow intelligence.
+              ProofPatch-styled local report mockups for blocked commands, Git evidence, workflow runs, and rollback
+              review.
             </p>
             <div className="grid gap-5 md:grid-cols-3">
               {reportCards.map((card) => (
@@ -410,13 +394,8 @@ export default function LandingPage() {
                   as the preferred supported CLI command.
                 </p>
                 <p className="mt-4 border border-border bg-background px-4 py-3 text-sm leading-7 text-muted-foreground">
-                  CLI transition:{" "}
-                  <code className="bg-muted px-1 py-0.5 font-mono text-foreground">{brand.currentPreferredCli}</code>{" "}
-                  is currently supported,{" "}
-                  <code className="bg-muted px-1 py-0.5 font-mono text-foreground">{brand.legacyCliName}</code> remains
-                  legacy, and{" "}
-                  <code className="bg-muted px-1 py-0.5 font-mono text-foreground">{brand.futureCliAlias}</code> is
-                  planned after the final package rename.
+                  The open-source package is being renamed. Some current source paths may still reference the original
+                  repository name.
                 </p>
               </div>
               <div className="min-w-0 border border-border bg-background">

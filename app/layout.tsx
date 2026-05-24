@@ -11,15 +11,17 @@ export const metadata: Metadata = {
   description:
     `${brand.productName} provides local evidence and proof for AI coding agents: commands, Git changes, workflow logs, reports, rollback plans, compare views, and execution history.`,
   keywords: [
+    'ProofPatch',
     'AI coding agents',
-    'code review',
-    'Git evidence',
-    'workflow logs',
-    'rollback',
-    'local reports',
+    'AI coding agent audit trail',
+    'AI generated code review',
+    'local workflow evidence',
+    'Git change evidence',
+    'rollback plan',
+    'workflow reports',
     'Codex',
     'Claude Code',
-    'AI-generated patches',
+    'coding agent observability',
   ],
   generator: 'v0.app',
   openGraph: {
