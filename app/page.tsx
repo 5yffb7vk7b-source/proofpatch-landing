@@ -207,7 +207,7 @@ export default function LandingPage() {
               <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 {brand.productName.toUpperCase()}
               </p>
-              <h1 className="mb-4 font-mono text-5xl font-medium tracking-tight text-foreground sm:text-6xl">
+              <h1 className="mb-4 font-mono text-4xl font-medium tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 {brand.tagline}
               </h1>
               <p className="mb-5 text-xl text-foreground sm:text-2xl">
@@ -308,7 +308,7 @@ export default function LandingPage() {
                 <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                   What {brand.productName} records
                 </p>
-                <h2 className="font-mono text-3xl leading-tight text-foreground">
+                <h2 className="font-mono text-2xl leading-tight text-foreground sm:text-3xl">
                   A patch is not proof. The trail around it is.
                 </h2>
                 <p className="mt-5 leading-8 text-muted-foreground">
@@ -331,7 +331,7 @@ export default function LandingPage() {
         <section id="features" className="scroll-mt-20 border-b border-border">
           <div className="mx-auto max-w-6xl px-5 py-18 sm:px-6 md:py-20">
             <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">Features</p>
-            <h2 className="mb-4 max-w-3xl font-mono text-3xl leading-tight text-foreground">
+            <h2 className="mb-4 max-w-3xl font-mono text-2xl leading-tight text-foreground sm:text-3xl">
               A local evidence layer for AI coding-agent work.
             </h2>
             <p className="mb-10 max-w-3xl leading-8 text-muted-foreground">{brand.shortDescription}</p>
@@ -353,7 +353,7 @@ export default function LandingPage() {
                 <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                   Built for AI coding-agent workflows
                 </p>
-                <h2 className="font-mono text-3xl leading-tight text-foreground">
+                <h2 className="font-mono text-2xl leading-tight text-foreground sm:text-3xl">
                   Keep the agent fast. Make the workflow reviewable.
                 </h2>
                 <p className="mt-5 leading-8 text-muted-foreground">
@@ -396,7 +396,7 @@ export default function LandingPage() {
             <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Reports and dashboards
             </p>
-            <h2 className="mb-5 max-w-3xl font-mono text-3xl leading-tight text-foreground">
+            <h2 className="mb-5 max-w-3xl font-mono text-2xl leading-tight text-foreground sm:text-3xl">
               Reviewable proof, without broken screenshots or hidden state.
             </h2>
             <p className="mb-10 max-w-3xl leading-8 text-muted-foreground">
@@ -416,7 +416,7 @@ export default function LandingPage() {
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
                 <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">Quickstart</p>
-                <h2 className="font-mono text-3xl leading-tight text-foreground">Try it in a repo you can inspect.</h2>
+                <h2 className="font-mono text-2xl leading-tight text-foreground sm:text-3xl">Try it in a repo you can inspect.</h2>
                 <p className="mt-5 leading-8 text-muted-foreground">
                   Install locally, run a test command, then inspect the captured run and workflow report.{" "}
                   <code className="bg-muted px-1 py-0.5 font-mono text-foreground">{brand.currentPreferredCli}</code>{" "}
@@ -432,7 +432,7 @@ export default function LandingPage() {
                   </div>
                   <span className="ml-2 font-mono text-xs text-muted-foreground">terminal</span>
                 </div>
-                <pre className="overflow-x-auto p-5 font-mono text-xs leading-7 sm:text-sm">
+                <pre className="overflow-x-auto p-5 font-mono text-xs leading-7">
                   <code>{`git clone ${brand.githubRepoUrl}.git ${brand.cloneTargetDir}
 cd ${brand.cloneTargetDir}
 python3 -m venv .venv
@@ -457,7 +457,7 @@ ${brand.currentPreferredCli} workflow report latest --html`}</code>
                 <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                   Trust and safety
                 </p>
-                <h2 className="font-mono text-3xl leading-tight text-foreground">
+                <h2 className="font-mono text-2xl leading-tight text-foreground sm:text-3xl">
                   Useful oversight without moving your work into a hosted dashboard.
                 </h2>
               </div>
@@ -474,7 +474,7 @@ ${brand.currentPreferredCli} workflow report latest --html`}</code>
 
         <section className="border-b border-border">
           <div className="mx-auto max-w-4xl px-5 py-20 text-center sm:px-6 md:py-24">
-            <p className="mb-5 font-mono text-3xl leading-tight text-foreground">
+            <p className="mb-5 font-mono text-2xl leading-tight text-foreground sm:text-3xl">
               Ship AI-generated patches with evidence, not guesswork.
             </p>
             <p className="mx-auto mb-8 max-w-2xl leading-8 text-muted-foreground">
