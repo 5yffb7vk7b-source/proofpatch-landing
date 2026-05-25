@@ -242,8 +242,8 @@ export default function LandingPage() {
               </p>
             </div>
 
-            <div className="flex items-center">
-              <div className="w-full border border-border bg-card shadow-2xl shadow-black/20">
+            <div className="flex min-w-0 items-center">
+              <div className="w-full min-w-0 border border-border bg-card shadow-2xl shadow-black/20">
                 <div className="flex items-center gap-2 border-b border-border px-4 py-3">
                   <div className="flex gap-1.5">
                     <div className="h-3 w-3 rounded-full bg-destructive/60" />
@@ -258,7 +258,7 @@ export default function LandingPage() {
                     <span className="text-foreground">{brand.currentPreferredCli}</span>
                   </div>
                   <div>
-                    <pre className="overflow-x-auto whitespace-pre-wrap break-all text-foreground"><span className="text-muted-foreground">$ </span>{brand.currentPreferredCli} run --project . --label &quot;demo&quot; -- pytest -q</pre>
+                    <pre className="overflow-x-auto whitespace-pre text-foreground"><span className="text-muted-foreground">$ </span>{brand.currentPreferredCli} run --project . --label &quot;demo&quot; -- pytest -q</pre>
                     <div className="mt-2 text-primary">8 passed</div>
                     <div>
                       <span className="text-muted-foreground">HTML report: </span>
@@ -274,7 +274,7 @@ export default function LandingPage() {
                     </div>
                   </div>
                   <div className="border-t border-border pt-4">
-                    <pre className="overflow-x-auto whitespace-pre-wrap break-all text-foreground"><span className="text-muted-foreground">$ </span>{brand.currentPreferredCli} workflow run workflows/tasks/release-workflow.yml --dry-run</pre>
+                    <pre className="overflow-x-auto whitespace-pre text-foreground"><span className="text-muted-foreground">$ </span>{brand.currentPreferredCli} workflow run workflows/tasks/release-workflow.yml --dry-run</pre>
                     <div className="mt-2 grid gap-1 text-muted-foreground">
                       <span>
                         <span className="text-foreground">Workflow:</span> release-workflow
@@ -291,7 +291,7 @@ export default function LandingPage() {
                     </div>
                   </div>
                   <div className="border-t border-border pt-4">
-                    <pre className="overflow-x-auto whitespace-pre-wrap break-all text-foreground"><span className="text-muted-foreground">$ </span>{brand.currentPreferredCli} workflow report latest --html</pre>
+                    <pre className="overflow-x-auto whitespace-pre text-foreground"><span className="text-muted-foreground">$ </span>{brand.currentPreferredCli} workflow report latest --html</pre>
                     <div className="mt-2 text-muted-foreground">
                       HTML report: <span className="text-foreground">workflows/reports/latest.html</span>
                     </div>

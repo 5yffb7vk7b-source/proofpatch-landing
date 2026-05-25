@@ -1,28 +1,28 @@
 # ProofPatch Landing Page
 
-This is the source for the ProofPatch public landing page, built with [Next.js](https://nextjs.org).
+Public landing page for [ProofPatch](https://v0-agentblackbox-landing-page.vercel.app) — a local evidence layer for AI coding-agent work.
 
-ProofPatch is the public product brand for the local evidence layer around AI coding-agent work. The source tooling still lives in the original repository while the rename continues.
+ProofPatch records commands, Git changes, failures, blocked actions, workflow logs, reports, comparisons, and rollback plans so developers have reviewable proof before an AI-generated patch ships.
 
-## Getting Started
+## Live site
 
-First, run the development server:
+**https://v0-agentblackbox-landing-page.vercel.app**
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tooling repo
 
-## Learn More
+The ProofPatch CLI source lives at [github.com/5yffb7vk7b-source/agentblackbox](https://github.com/5yffb7vk7b-source/agentblackbox). The quickstart on the landing page clones that repo into a local `proofpatch/` directory.
 
-To learn more, take a look at the following resources:
+## Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js 16 (App Router)
+- Tailwind CSS v4
+- Deployed on Vercel

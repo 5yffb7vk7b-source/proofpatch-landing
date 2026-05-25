@@ -6,10 +6,15 @@ import { brand } from './brand'
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
+const META_DESCRIPTION = `${brand.productName} records commands, Git changes, failures, blocked actions, workflow logs, reports, comparisons, and rollback plans for AI-generated patches.`
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://v0-agentblackbox-landing-page.vercel.app'),
+  alternates: {
+    canonical: '/',
+  },
   title: `${brand.productName} — ${brand.tagline}`,
-  description:
-    `${brand.productName} records commands, Git changes, failures, blocked actions, workflow logs, reports, comparisons, and rollback plans for AI-generated patches.`,
+  description: META_DESCRIPTION,
   keywords: [
     'ProofPatch',
     'AI coding agents',
@@ -25,15 +30,17 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: `${brand.productName} — ${brand.tagline}`,
-    description:
-      `${brand.productName} records commands, Git changes, failures, blocked actions, workflow logs, reports, comparisons, and rollback plans for AI-generated patches.`,
+    description: META_DESCRIPTION,
+    url: '/',
+    siteName: brand.productName,
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: `${brand.productName} — ${brand.tagline}`,
-    description:
-      `${brand.productName} records commands, Git changes, failures, blocked actions, workflow logs, reports, comparisons, and rollback plans for AI-generated patches.`,
+    description: META_DESCRIPTION,
+    images: ['/opengraph-image'],
   },
   icons: {
     icon: [
