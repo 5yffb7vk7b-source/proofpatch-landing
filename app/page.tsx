@@ -181,8 +181,9 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-border bg-card px-3 py-2 font-mono text-xs text-foreground hover:bg-secondary"
             >
-              <Github className="h-3.5 w-3.5" />
-              View source on GitHub
+              <Github className="h-3.5 w-3.5 shrink-0" />
+              <span className="sm:hidden">GitHub</span>
+              <span className="hidden sm:inline">View source on GitHub</span>
             </Link>
           </div>
         </div>
