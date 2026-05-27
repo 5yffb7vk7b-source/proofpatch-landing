@@ -29,7 +29,9 @@ from datetime import date, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-SENDER = "matei4business@gmail.com"
+SENDER_EMAIL = "matei4business@gmail.com"
+SENDER = "Matei / ProofPatch <matei4business@gmail.com>"
+REPLY_TO = "matei4business@gmail.com"
 SUBJECT = "reviewing AI-generated patches"
 SCOPES = ["https://www.googleapis.com/auth/gmail.compose"]
 
@@ -195,6 +197,7 @@ def create_draft(service, to: str, subject: str, body: str) -> str:
     msg = MIMEMultipart("alternative")
     msg["to"] = to
     msg["from"] = SENDER
+    msg["reply-to"] = REPLY_TO
     msg["subject"] = subject
     msg.attach(MIMEText(body, "plain"))
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
@@ -239,7 +242,36 @@ def main() -> None:
                       help="Print email bodies without contacting Gmail")
     mode.add_argument("--create", action="store_true",
                       help="Authenticate Gmail and create drafts")
+    mode.add_argument("--auth-only", action="store_true",
+                      help="Complete OAuth flow and save token, then exit (no drafts created)")
+    mode.add_argument("--self-test", action="store_true",
+                      help="Create ONE draft addressed to matei4business@gmail.com to verify auth works")
     args = parser.parse_args()
+
+    # ── Auth only ──────────────────────────────────────────────────────────────
+    if args.auth_only:
+        get_gmail_service()
+        print("✅  OAuth complete. Token stored at:")
+        print(f"    {TOKEN_FILE}")
+        print("    Run --self-test next to verify a draft lands in Gmail Drafts.")
+        return
+
+    # ── Self-test ──────────────────────────────────────────────────────────────
+    if args.self_test:
+        service = get_gmail_service()
+        test_body = (
+            "This is a self-test draft created by create_gmail_drafts.py.\n\n"
+            "If you can see this in Gmail Drafts, OAuth is working correctly.\n"
+            "Delete this draft — it was never sent.\n\n"
+            "— Matei"
+        )
+        draft_id = create_draft(service, SENDER_EMAIL, "[self-test] ProofPatch draft tool", test_body)
+        print(f"\n✅  Self-test draft created  id={draft_id}")
+        print(f"    To:      {SENDER_EMAIL}")
+        print(f"    From:    {SENDER}")
+        print(f"    Check:   https://mail.google.com/#drafts")
+        print(f"    Delete the draft — it was never sent.\n")
+        return
 
     if not COLD_MESSAGES_MD.exists():
         print(f"❌  cold-messages.md not found: {COLD_MESSAGES_MD}")
