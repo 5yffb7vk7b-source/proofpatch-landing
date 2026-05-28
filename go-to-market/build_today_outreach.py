@@ -222,14 +222,17 @@ LEADS = [
         ),
         "angle": "claude-reflect captures corrections. ProofPatch captures what the agent ran before and after those corrections applied.",
         "subject": "claude-reflect captures feedback — ProofPatch captures what triggered it",
+        # Corrected, relationship-first body — matches what was actually sent on 2026-05-28.
+        # The earlier priced body ("$200 / paid setups / teams who want it running in their
+        # repo") was stale and must NOT be reintroduced for Bayram.
         "body": (
-            "Hey Bayram — claude-reflect captures corrections and syncs learning to CLAUDE.md."
-            " ProofPatch captures what the agent actually ran when those corrections were"
-            " (or weren't) followed — commands, diffs, failures.\n"
+            "Hey Bayram — claude-reflect records corrections and syncs them to CLAUDE.md."
+            " ProofPatch records what the agent actually did when those corrections ran"
+            " (or didn't) — commands, diffs, failures.\n"
             "\n"
-            "You close the learning loop. I generate the execution evidence for the step before that.\n"
+            "You close the learning loop. I generate the evidence before the loop starts.\n"
             "\n"
-            "Worth a quick look? I do paid setups ($200) for teams who want it running in their repo.\n"
+            "Worth a look?\n"
             "\n"
             "— Matei"
         ),
