@@ -1,75 +1,85 @@
 # ProofPatch — Gmail Draft Cleanup Audit
 
 **Audit date:** 2026-05-28
+**Resolution updated:** 2026-05-28 — all Gmail drafts manually deleted by the user.
 **Type:** Post-send draft hygiene check.
 
-## Tooling Limitation (read first)
+## RESOLVED — All Gmail drafts manually deleted by the user
 
-The Gmail MCP server available in this session exposes only these tools:
-`create_draft`, `find_and_draft_reply`, `search_emails`, `get_email_details`,
-`list_emails`, `send_email`.
+On 2026-05-28 the user **manually deleted all Gmail drafts** via the Gmail web UI. A
+read-only `in:draft` listing afterward returned **0 drafts**, confirming the cleanup.
 
-**There is no delete-draft or trash-draft tool.** Programmatic deletion/trashing of
-drafts was therefore **not possible** in this session. No draft was deleted, trashed, or
-modified. Group A duplicate drafts and the Group B stale Bayram draft are flagged here for
-**manual deletion** by the user in the Gmail web UI (Drafts → select → Delete). This is the
-only available remediation path given the MCP toolset.
+Deleted (21 drafts total):
+- **9 duplicate developer drafts** removed (the 8 Group A + the 1 Bayram draft).
+- **Stale Bayram draft** removed (it contained the forbidden price text — corrected version
+  was already sent, not this draft).
+- **10 wrong-ICP small-business drafts** removed.
+- **2 test / self-test drafts** removed.
 
-Duplicate-send risk is mitigated in the meantime by the fact that drafts never auto-send —
-sending requires an explicit manual action — and by this written flag.
+**Sent emails were NOT deleted** — the 9 messages in Sent Mail remain intact as the
+campaign record.
+
+Duplicate-send risk is now fully eliminated: no drafts remain.
+
+## Tooling Limitation (context)
+
+The Gmail MCP server in this session exposes only `create_draft`, `find_and_draft_reply`,
+`search_emails`, `get_email_details`, `list_emails`, `send_email` — **no delete/trash tool**.
+Programmatic deletion was therefore not possible, so the drafts were flagged for manual
+deletion, which the user then completed (see resolution above).
 
 ## Draft Group Summary
 
 | Draft Group | Count Before | Action Taken | Count After | Notes |
 |---|---|---|---|---|
-| A — Duplicate developer-ICP drafts (already sent directly) | 8 | None — no delete tool in Gmail MCP; flagged for manual deletion | 8 | Duplicate-send risk; delete manually in Gmail |
-| B — Stale Bayram draft (forbidden price text) | 1 | None — no delete tool in Gmail MCP; flagged for manual deletion | 1 | Contains "$200" / "paid setups" / "teams who want it running in their repo"; delete manually |
-| C — Wrong-ICP small-business drafts | 10 | Left untouched (per instructions) | 10 | Remain unsent; do not send |
-| D — Test / unrelated drafts | 2 | Left untouched | 2 | Clearly test junk ("Do not send it" / self-test); left intact — not deleted to avoid acting beyond the audit's safety scope. Safe to delete manually if desired |
-| **Total** | **21** | | **21** | No drafts deleted (no tool available) |
+| A — Duplicate developer-ICP drafts (already sent directly) | 8 | Manually deleted by user | 0 | Duplicate-send risk eliminated |
+| B — Stale Bayram draft (forbidden price text) | 1 | Manually deleted by user | 0 | Stale priced draft removed; corrected version was already sent |
+| C — Wrong-ICP small-business drafts | 10 | Manually deleted by user | 0 | Removed by user |
+| D — Test / unrelated drafts | 2 | Manually deleted by user | 0 | Removed by user |
+| **Total** | **21** | All manually deleted by user | **0** | `in:draft` listing confirms 0 drafts remain |
 
-## Group A — Duplicate developer-ICP drafts (manual-delete recommended)
+## Group A — Duplicate developer-ICP drafts (DELETED by user)
 
-These drafts duplicate emails already sent via direct send on 2026-05-28. Keeping them
-creates duplicate-send risk.
-
-| Recipient | Subject | Group | Action |
-|---|---|---|---|
-| tdwhere123@gmail.com | your "evidence-backed completion" repo | A | Flag for manual deletion |
-| yiming.wu@outlook.com | the evidence layer for HOTL's review step | A | Flag for manual deletion |
-| kailesk@houseofmvps.com | client audit trail for your Claude Code builds | A | Flag for manual deletion |
-| florian@bruniaux.com | ctxharness validates before — ProofPatch captures after | A | Flag for manual deletion |
-| sean@seandonahoe.com | logging the verification loops from agents-md | A | Flag for manual deletion |
-| git-public@hesreallyhim.com | ProofPatch for awesome-claude-code — local audit trail tool | A | Flag for manual deletion |
-| vladta@wix.com | you review agent instructions — I log what they ran | A | Flag for manual deletion |
-| sgroy10@gmail.com | what happens when speclock's rules run | A | Flag for manual deletion |
-
-## Group B — Stale Bayram draft (manual-delete recommended)
+These drafts duplicated emails already sent via direct send on 2026-05-28. All removed.
 
 | Recipient | Subject | Group | Action |
 |---|---|---|---|
-| bayram.annakov@gmail.com | claude-reflect captures feedback — ProofPatch captures what triggered it | B | Flag for manual deletion — stale body contains forbidden price text; the corrected version was already sent |
+| tdwhere123@gmail.com | your "evidence-backed completion" repo | A | Manually deleted by user |
+| yiming.wu@outlook.com | the evidence layer for HOTL's review step | A | Manually deleted by user |
+| kailesk@houseofmvps.com | client audit trail for your Claude Code builds | A | Manually deleted by user |
+| florian@bruniaux.com | ctxharness validates before — ProofPatch captures after | A | Manually deleted by user |
+| sean@seandonahoe.com | logging the verification loops from agents-md | A | Manually deleted by user |
+| git-public@hesreallyhim.com | ProofPatch for awesome-claude-code — local audit trail tool | A | Manually deleted by user |
+| vladta@wix.com | you review agent instructions — I log what they ran | A | Manually deleted by user |
+| sgroy10@gmail.com | what happens when speclock's rules run | A | Manually deleted by user |
 
-## Group C — Wrong-ICP small-business drafts (LEFT UNTOUCHED)
+## Group B — Stale Bayram draft (DELETED by user)
 
-10 drafts, all "Quick website idea for ..." — left intact and unsent per instructions:
+| Recipient | Subject | Group | Action |
+|---|---|---|---|
+| bayram.annakov@gmail.com | claude-reflect captures feedback — ProofPatch captures what triggered it | B | Manually deleted by user — stale body contained forbidden price text; the corrected version was already sent |
+
+## Group C — Wrong-ICP small-business drafts (DELETED by user)
+
+10 drafts, all "Quick website idea for ..." — all removed by the user:
 Shari Leid Coaching, Precision Landscape, The Event Company, Studio Verve Pilates,
 Small Business Accounting (SBA Tax), Local Marketing, HLE Landscaping,
 The Pilates Point Studio, Crimson Park Digital, Bookkeepers for Small Businesses.
 
-## Group D — Test / unrelated drafts (LEFT UNTOUCHED)
+## Group D — Test / unrelated drafts (DELETED by user)
 
 - "ProofPatch outreach test" — body: "This is a real workflow test. Do not send it."
 - "[self-test] Gmail MCP works" — body: self-test draft, "Do not send it."
 
 ## Post-Action Draft State
 
-No deletion was possible (no tool), so the draft list is unchanged from the audit snapshot:
+The user manually deleted all drafts; a read-only `in:draft` listing returned **0 drafts**:
 
-- Drafts remaining for the 9 sent developer recipients: **9** (8 Group A + 1 Group B Bayram) — **manual deletion required**
-- Stale Bayram draft remaining: **1** — **manual deletion required**
-- Wrong-ICP small-business drafts: **10**, all unsent (correct)
-- Test/unrelated drafts: **2**, untouched (correct)
+- Drafts remaining for the 9 sent developer recipients: **0**
+- Stale Bayram draft remaining: **0**
+- Wrong-ICP small-business drafts remaining: **0**
+- Test/unrelated drafts remaining: **0**
+- **Total drafts remaining: 0**
 
-**Action item for user:** Manually delete the 9 Group A/B drafts in Gmail to remove
-duplicate-send risk. Leave the 10 wrong-ICP drafts as-is unless you decide to discard them.
+Sent emails were not deleted — the 9 messages in Sent Mail remain intact as the campaign
+record. Duplicate-send risk is fully eliminated.
